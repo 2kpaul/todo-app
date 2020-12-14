@@ -1,9 +1,86 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap'; 
+
+body {
+    font-family: 'Andika', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 30px;
+    padding: 1rem;
+}
+
+input, h2, h3 {
+    font-family: 'Amatic SC', cursive;
+}
+
+h1{
+	font-family: 'Amatic SC', cursive;
+	margin-top: 10px;
+	font-size: 2.5rem;
+    font-weight: 700;
+    color: #555;
+    line-height: 50px;
+}
+
+.red {
+    color: $red;
+}
+
+.green {
+    color: $green
+}
+
+
+i.fa span{
+    font-size: 0.8rem;
+}
+
+.tasks {
+    list-style: none;
+    border: 1px solid gray;
+    padding: 0;
+    display: table;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+h3{
+    text-align: center;
+    padding: 0.5rem;
+    margin: 2rem;
+}
+
+.tasks .task-item {
+    border-bottom: 1px solid gray;
+}
+
+.tasks .task-item:last-child {
+    border: none;
+}
+
+.task-descr{
+    // width: 90%;
+    padding: 1rem;
+}
+
+.task-actions{
+    min-width: 10%;
+    padding: 0.5rem;
+}
+
+.task-actions i{
+    cursor: pointer;
+}
+
+.task-actions i span {
+    align-self: center;
+}
+
+
 
