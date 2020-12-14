@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Task;
+use App\Models\TaskList;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('tasks', function () {
+    return Task::with('list')->get();
+});
+
+Route::get('task-lists', function () {
+    return TaskList::with('tasks')->get();
 });
