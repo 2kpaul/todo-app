@@ -25,8 +25,7 @@ class TaskFactory extends Factory
         $task_lists = TaskList::pluck('id')->toArray();
         return [
             'task_list_id' => $this->faker->randomElement($task_lists),
-            'title' => $this->faker->sentence(),
-            'description' => $this->faker->sentence(),
+            'body' => $this->faker->sentence(),
         ];
     }
 }

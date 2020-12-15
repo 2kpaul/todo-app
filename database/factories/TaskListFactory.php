@@ -23,7 +23,6 @@ class TaskListFactory extends Factory
     {
         return [
             'title' => $this->faker->name(),
-            'description' => $this->faker->sentence(),
         ];
     }
 }
