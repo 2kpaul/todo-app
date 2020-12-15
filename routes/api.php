@@ -24,6 +24,14 @@ Route::get('tasks', function () {
     return Task::with('list')->get();
 });
 
+Route::get('tasks/{task}', function (Task $task) {
+    return $task;
+});
+
 Route::get('task-lists', function () {
     return TaskList::with('tasks')->get();
+});
+
+Route::get('task-lists/{list}', function (TaskList $list) {
+    return $list;
 });
