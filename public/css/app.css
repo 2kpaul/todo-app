@@ -10913,7 +10913,8 @@ body {
 
 input,
 h2,
-h3 {
+h3,
+.task-status {
   font-family: "Amatic SC", cursive;
 }
 
@@ -10941,7 +10942,8 @@ i.fa span {
 h3 {
   text-align: center;
   padding: 0.5rem;
-  margin: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 h4 {
@@ -10959,8 +10961,12 @@ h4 {
 }
 
 .task-descr {
-  border-left: 5px solid lightseagreen;
+  border-left: 5px solid #1111b9;
   padding: 1rem;
+}
+
+.task-descr:hover {
+  cursor: pointer;
 }
 
 .task-actions {
@@ -10978,6 +10984,29 @@ h4 {
 
 .task-done {
   text-decoration: line-through;
-  border-left: 5px solid lightgreen !important;
+  border-left: 5px solid #2f9158 !important;
+}
+
+.task-pending {
+  border-left: 5px solid #c9d346 !important;
+}
+
+.task-status {
+  background-color: #1111b9;
+  text-align: center;
+  color: white;
+}
+
+.task-status-done {
+  background-color: #2f9158;
+}
+
+.task-status-pending {
+  background-color: #c9d346;
+}
+
+.form-task {
+  background-color: #eff5fc;
+  padding: 1rem;
 }
 

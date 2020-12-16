@@ -20,10 +20,12 @@
                 </div>
     
                 <div class="row justify-content-around">
-                    <div class="col-10 mt-4">
+                    <div class="col mt-4">
                         <div class="row justify-content-around">
-                            <div class="col-9">
+                            <div class="col-5">
                                 @livewire('task-form')
+                            </div>
+                            <div class="col">
                                 @livewire('task-list')
                             </div>
                         </div>

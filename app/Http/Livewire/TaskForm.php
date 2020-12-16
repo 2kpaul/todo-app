@@ -11,6 +11,7 @@ class TaskForm extends Component
     public $lists;
     public $list;
     public $task;
+    public $description;
 
 
     protected $rules = [
@@ -29,12 +30,14 @@ class TaskForm extends Component
 
         Task::create([
             'task_list_id' => $this->list,
-            'body' => $this->task
+            'name' => $this->task,
+            'body' => $this->description
         ]);
 
         $this->emit("refreshList");
         $this->list = '';
         $this->task = '';
+        $this->description = '';
     }
 
     public function render()

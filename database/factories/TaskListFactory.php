@@ -22,7 +22,7 @@ class TaskListFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name(),
+            'name' => $this->faker->name(),
         ];
     }
 }

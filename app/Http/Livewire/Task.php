@@ -14,7 +14,9 @@ class Task extends Component
     public function complete()
     {
         $this->task->completed = !$this->task->completed;
+        $this->task->status = ($this->task->completed == 1) ? 'done' : 'pending';
         $this->task->save();
+        $this->emit('$refresh');
     }
 
     public function delete(Todo $task)

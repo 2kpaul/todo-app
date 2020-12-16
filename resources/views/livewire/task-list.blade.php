@@ -1,6 +1,6 @@
 <div>
     @forelse ($lists as $task_list)
-        <h3>{{ $task_list->title }}</h3>
+        <h3>{{ $task_list->name }}</h3>
         <div class="tasks">
             @forelse ($task_list->tasks as $task)
                 @livewire('task', ['task' => $task], key($task->id))
@@ -10,7 +10,7 @@
             
         </div>
     @empty
-        <p>No list to display</p>
+        <h4>No list to display</h4>
     @endforelse
 </div>
 
