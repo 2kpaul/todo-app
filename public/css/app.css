@@ -10938,30 +10938,28 @@ i.fa span {
   font-size: 0.8rem;
 }
 
-.tasks {
-  list-style: none;
-  border: 1px solid gray;
-  padding: 0;
-  display: table;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
 h3 {
   text-align: center;
   padding: 0.5rem;
   margin: 2rem;
 }
 
+h4 {
+  text-align: center;
+  padding: 0.5rem;
+}
+
 .tasks .task-item {
-  border-bottom: 1px solid gray;
+  background-color: #eff5fc;
+  margin-bottom: 0.5rem;
 }
 
 .tasks .task-item:last-child {
-  border: none;
+  border-bottom: none;
 }
 
 .task-descr {
+  border-left: 5px solid lightseagreen;
   padding: 1rem;
 }
 
@@ -10976,5 +10974,10 @@ h3 {
 
 .task-actions i span {
   align-self: center;
+}
+
+.task-done {
+  text-decoration: line-through;
+  border-left: 5px solid lightgreen !important;
 }
 

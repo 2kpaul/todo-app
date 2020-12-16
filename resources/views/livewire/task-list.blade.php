@@ -5,7 +5,7 @@
             @forelse ($task_list->tasks as $task)
                 @livewire('task', ['task' => $task], key($task->id))
             @empty
-                <p>No task to display</p>
+                <h4>No task to display</h4>
             @endforelse
             
         </div>

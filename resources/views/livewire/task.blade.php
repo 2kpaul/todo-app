@@ -1,5 +1,5 @@
 <div class="task-item d-flex justify-content-between">
-    <div class="task-descr {{ $task->completed == 1 ? 'bg-success' : '' }}">
+    <div class="task-descr {{ $task->completed == 1 ? 'task-done' : '' }}">
         {{ $task->body }}
     </div>
     <div class="task-actions align-self-center">

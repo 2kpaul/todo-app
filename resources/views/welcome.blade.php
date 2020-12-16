@@ -23,29 +23,10 @@
                     <div class="col-10 mt-4">
                         <div class="row justify-content-around">
                             <div class="col-9">
-                                <form action="">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</button>
-                                          <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Dev</a>
-                                            <a class="dropdown-item" href="#">To Do</a>
-                                            <a class="dropdown-item" href="#">Grocery</a>
-                                          </div>
-                                        </div>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                                        <div class="input-group-append">
-                                            <input type="button" value="Add Task" class="btn btn-success">
-                                        </div>
-                                      </div>
-                                </form>
-                                
+                                @livewire('task-form')
                                 @livewire('task-list')
-                                
                             </div>
-                            
                         </div>
-                        
                     </div>
                 </div>
             </section>

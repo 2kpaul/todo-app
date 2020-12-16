@@ -10,6 +10,8 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function list()
     {
         return $this->belongsTo(TaskList::class, 'task_list_id');

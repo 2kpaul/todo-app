@@ -9,6 +9,8 @@ class TaskList extends Component
 {
 
     public $lists;
+    public $list;
+    public $task;
 
     protected $listeners = ['refreshList' => '$refresh'];
 
