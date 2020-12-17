@@ -10,16 +10,13 @@ class TaskForm extends Component
 {
     public $lists, $list, $task, $description;
 
+    protected $listeners = ['refreshList' => '$refresh'];
+
 
     protected $rules = [
         'list' => 'required',
         'task' => 'required|min:3'
     ];
-
-    public function mount()
-    {
-        $this->lists = TaskList::latest()->get();
-    }
 
     public function submit()
     {
@@ -46,6 +43,7 @@ class TaskForm extends Component
 
     public function render()
     {
+        $this->lists = TaskList::latest()->get();
         return view('livewire.task-form');
     }
 }

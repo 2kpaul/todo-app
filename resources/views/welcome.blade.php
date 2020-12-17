@@ -36,7 +36,7 @@
                         </div>
                         <div class="row justify-content-around">
                             <div class="col">
-                                @livewire('task-list')
+                                @livewire('task-lists')
                             </div>
                         </div>
                     </div>
