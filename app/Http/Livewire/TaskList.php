@@ -9,15 +9,14 @@ class TaskList extends Component
 {
 
     public $lists;
-    public $list;
-    public $task;
 
-    protected $listeners = ['refreshList' => '$refresh'];
+    protected $listeners = ['refreshList' => 'mount'];
 
     public function mount()
     {
         $this->lists = TaskLists::with('tasks')->latest()->get();
     }
+
 
     public function render()
     {

@@ -21,10 +21,20 @@
     
                 <div class="row justify-content-around">
                     <div class="col mt-4">
-                        <div class="row justify-content-around">
-                            <div class="col-5">
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-primary ">
+                                    <span class="fa fa-list pull-left" data-toggle="modal" data-target="#createList"> Create list</span> 
+                                </button>
+
+                                <button class="btn btn-success" data-toggle="modal" data-target="#createTask">
+                                    <span class="fa fa-tasks pull-left"> Create task</span> 
+                                </button>
                                 @livewire('task-form')
+                                @livewire('task-list-form')
                             </div>
+                        </div>
+                        <div class="row justify-content-around">
                             <div class="col">
                                 @livewire('task-list')
                             </div>
@@ -35,5 +45,13 @@
         </div>
         <script type="text/javascript" src="/js/app.js"></script>
         @livewireScripts
+        <script type="text/javascript">
+            window.livewire.on('hideCreateTask', () => {
+                $('#createTask').modal('hide');
+            });
+            window.livewire.on('hideCreateList', () => {
+                $('#createList').modal('hide');
+            });
+        </script>
     </body>
 </html>

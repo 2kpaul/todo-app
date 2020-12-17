@@ -10961,7 +10961,7 @@ h4 {
 }
 
 .task-descr {
-  border-left: 5px solid #1111b9;
+  border-left: 5px solid #0086c0;
   padding: 1rem;
 }
 
@@ -10984,29 +10984,28 @@ h4 {
 
 .task-done {
   text-decoration: line-through;
-  border-left: 5px solid #2f9158 !important;
+  border-left: 5px solid #00c875 !important;
 }
 
 .task-pending {
-  border-left: 5px solid #c9d346 !important;
+  border-left: 5px solid #fdab3d !important;
 }
 
 .task-status {
-  background-color: #1111b9;
+  background-color: #0086c0;
   text-align: center;
   color: white;
 }
 
 .task-status-done {
-  background-color: #2f9158;
+  background-color: #00c875;
 }
 
 .task-status-pending {
-  background-color: #c9d346;
+  background-color: #fdab3d;
 }
 
 .form-task {
-  background-color: #eff5fc;
   padding: 1rem;
 }
 

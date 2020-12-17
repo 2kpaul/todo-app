@@ -1,3 +1,5 @@
+Redirect 301 /old-url http://www.website/the-new-url
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

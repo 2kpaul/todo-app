@@ -8,10 +8,7 @@ use App\Models\Task;
 
 class TaskForm extends Component
 {
-    public $lists;
-    public $list;
-    public $task;
-    public $description;
+    public $lists, $list, $task, $description;
 
 
     protected $rules = [
@@ -34,7 +31,14 @@ class TaskForm extends Component
             'body' => $this->description
         ]);
 
-        $this->emit("refreshList");
+        session()->flash('message', 'Task "' . $this->task . '" was created');
+        $this->resetInputFields();
+        $this->emit('hideCreateTask');
+        $this->emit('refreshList');
+    }
+
+    public function resetInputFields()
+    {
         $this->list = '';
         $this->task = '';
         $this->description = '';
