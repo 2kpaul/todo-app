@@ -8,9 +8,10 @@ use App\Models\Task;
 
 class TaskForm extends Component
 {
-    public $lists, $list, $task, $description;
+    public $lists, $list, $task, $description, $task_id;
+    public $update = false;
 
-    protected $listeners = ['refreshList' => '$refresh'];
+    protected $listeners = ['refreshList' => '$refresh', 'toggleTaskModal' => 'toggleTaskModal'];
 
 
     protected $rules = [
@@ -18,7 +19,13 @@ class TaskForm extends Component
         'task' => 'required|min:3'
     ];
 
-    public function submit()
+    public function hydrate()
+    {
+        $this->resetErrorBag();
+        $this->resetValidation();
+    }
+
+    public function create()
     {
         $this->validate();
 
@@ -34,12 +41,41 @@ class TaskForm extends Component
         $this->emit('refreshList');
     }
 
+    public function update()
+    {
+        $this->validate();
+
+        $task = Task::find($this->task_id);
+        $task->task_list_id = $this->list;
+        $task->name = $this->task;
+        $task->body = $this->description;
+        $task->save();
+        $this->resetInputFields();
+        $this->emit('hideCreateTask');
+        $this->emit('refreshList');
+    }
+
+    public function toggleTaskModal(Task $task)
+    {
+        if ($task->id) {
+            $this->update = true;
+            $this->task_id = $task->id;
+            $this->list = $task->task_list_id;
+            $this->task = $task->name;
+            $this->description = $task->body;
+        } else {
+            $this->resetInputFields();
+        }
+    }
+
     public function resetInputFields()
     {
+        $this->update = false;
         $this->list = '';
         $this->task = '';
         $this->description = '';
     }
+
 
     public function render()
     {

@@ -27,7 +27,7 @@
                                     <span class="fa fa-list pull-left" data-toggle="modal" data-target="#createList"> Create list</span> 
                                 </button>
 
-                                <button class="btn btn-success" data-toggle="modal" data-target="#createTask">
+                                <button class="btn btn-success" onClick="window.livewire.emit('toggleTaskModal')">
                                     <span class="fa fa-tasks pull-left"> Create task</span> 
                                 </button>
                                 @livewire('task-form')
@@ -51,6 +51,9 @@
             });
             window.livewire.on('hideCreateList', () => {
                 $('#createList').modal('hide');
+            });
+            window.livewire.on('toggleTaskModal', () => {
+                $('#createTask').modal('show');
             });
         </script>
     </body>

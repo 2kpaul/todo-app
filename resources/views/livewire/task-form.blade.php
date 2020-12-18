@@ -11,7 +11,7 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="createTaskModalLabel">Create Task</h5>
+            <h5 class="modal-title" id="createTaskModalLabel">{{ $update ? 'Edit Task' : 'Create Task' }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -47,12 +47,21 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-            
+                    
+                    @if($update)
+                    <input type="hidden" wire:model="task_id">
+                    @endif
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" wire:click="submit">Add Task</button>
+                @if($update)
+                    <button type="button" class="btn btn-success" wire:click="update">Save changes</button>
+                @else
+                    <button type="button" class="btn btn-success" wire:click="create">Add Task</button>
+                @endif
+                
             </div>
         </div>
         </div>
