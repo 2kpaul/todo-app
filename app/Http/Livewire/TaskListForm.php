@@ -7,13 +7,22 @@ use App\Models\TaskList;
 
 class TaskListForm extends Component
 {
-    public $list;
+    public $list, $list_id;
+    public $update = false;
+
+    protected $listeners = ['toggleListModal' => 'toggleListModal'];
 
     protected $rules = [
         'list' => 'required',
     ];
 
-    public function submit()
+    public function hydrate()
+    {
+        $this->resetErrorBag();
+        $this->resetValidation();
+    }
+
+    public function create()
     {
         $this->validate();
 
@@ -27,9 +36,34 @@ class TaskListForm extends Component
         $this->emit('refreshList');
     }
 
+    public function update()
+    {
+        $this->validate();
+
+        $list = TaskList::find($this->list_id);
+        $list->name = $this->list;
+        $list->save();
+        $this->resetInputFields();
+        $this->emit('hideCreateList');
+        $this->emit('refreshList');
+    }
+
+    public function toggleListModal(TaskList $list)
+    {
+        if ($list->id) {
+            $this->update = true;
+            $this->list_id = $list->id;
+            $this->list = $list->name;
+        } else {
+            $this->resetInputFields();
+        }
+    }
+
     public function resetInputFields()
     {
         $this->list = '';
+        $this->update = false;
+        $this->list_id = '';
     }
 
     public function render()

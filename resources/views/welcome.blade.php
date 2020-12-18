@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col">
                                 <button class="btn btn-primary ">
-                                    <span class="fa fa-list pull-left" data-toggle="modal" data-target="#createList"> Create list</span> 
+                                    <span class="fa fa-list pull-left" onClick="window.livewire.emit('toggleListModal')"> Create list</span> 
                                 </button>
 
                                 <button class="btn btn-success" onClick="window.livewire.emit('toggleTaskModal')">
@@ -54,6 +54,9 @@
             });
             window.livewire.on('toggleTaskModal', () => {
                 $('#createTask').modal('show');
+            });
+            window.livewire.on('toggleListModal', () => {
+                $('#createList').modal('show');
             });
         </script>
     </body>

@@ -12,6 +12,7 @@ class TaskLists extends Component
 
     protected $listeners = ['refreshList' => '$refresh'];
 
+
     public function render()
     {
         $this->lists = TaskList::with('tasks')->latest()->get();

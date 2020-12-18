@@ -74,6 +74,7 @@ class TaskForm extends Component
         $this->list = '';
         $this->task = '';
         $this->description = '';
+        $this->task_id = '';
     }
 
 

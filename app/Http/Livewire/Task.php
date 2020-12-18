@@ -10,13 +10,15 @@ class Task extends Component
 
     public $task;
 
+    protected $listeners = ['refreshList' => '$refresh'];
+
 
     public function complete()
     {
         $this->task->completed = !$this->task->completed;
         $this->task->status = ($this->task->completed == 1) ? 'done' : 'pending';
         $this->task->save();
-        $this->emit('$refresh');
+        $this->emitUp('refreshList');
     }
 
     public function delete(Todo $task)
