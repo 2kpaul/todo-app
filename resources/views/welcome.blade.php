@@ -59,6 +59,7 @@
             window.livewire.on('toggleListModal', () => {
                 $('#createList').modal('show');
             });
+            $('.alert').alert()
         </script>
     </body>
 </html>
