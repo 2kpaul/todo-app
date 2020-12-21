@@ -1,10 +1,4 @@
 <div>
-    @if (session()->has('message'))
-        <div class="alert alert-success" style="margin-top:30px;">
-            {{ session('message') }}
-        </div>
-    @endif
-
     <!-- Modal -->
     <div wire:ignore.self class="modal fade" id="createList" tabindex="-1" role="dialog" aria-labelledby="createTaskListModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

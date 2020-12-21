@@ -33,7 +33,8 @@ class TaskListForm extends Component
         session()->flash('message', 'List "' . $this->list . '" was created');
         $this->resetInputFields();
         $this->emit('hideCreateList');
-        $this->emit('refreshList');
+        $this->emit('refreshFormList');
+        $this->emit('refreshLists');
     }
 
     public function update()
@@ -45,7 +46,7 @@ class TaskListForm extends Component
         $list->save();
         $this->resetInputFields();
         $this->emit('hideCreateList');
-        $this->emit('refreshList');
+        $this->emit('refreshList' . $list->id);
     }
 
     public function toggleListModal(TaskList $list)

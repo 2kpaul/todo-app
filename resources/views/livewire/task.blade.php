@@ -1,3 +1,4 @@
+@if($task)
 <div>
     <div class="row task-item">
         <div class="col task-descr {{ $task->status == 'pending' ? 'task-pending' : ($task->status == 'done' ? 'task-done' : '') }}" wire:click="$emit('toggleTaskModal', {{ $task }})">
@@ -8,8 +9,9 @@
         </div>
         <div class="col-1 task-actions align-self-center">
             <i class="fa fa-check-circle fa-lg green" wire:click="complete"></i>
-            <i class="fa fa-trash fa-lg red" wire:click="delete()"></i>
+            <i class="fa fa-trash fa-lg red" wire:click="delete"></i>
         </div>
     </div>  
 </div>
+@endif
 

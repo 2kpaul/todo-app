@@ -3,17 +3,27 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\TaskList as TodoList;
 
 class TaskList extends Component
 {
 
     public $list;
 
-    protected $listeners = ['refreshList' => '$refresh'];
 
+    public function getListeners()
+    {
+        return ['refreshList' . $this->list->id => '$refresh'];
+    }
+
+    public function mount()
+    {
+        $this->list = TodoList::find($this->list->id);
+    }
 
     public function render()
     {
+        $this->mount();
         return view('livewire.task-list');
     }
 }

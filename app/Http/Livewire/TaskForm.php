@@ -11,7 +11,7 @@ class TaskForm extends Component
     public $lists, $list, $task, $description, $task_id;
     public $update = false;
 
-    protected $listeners = ['refreshList' => '$refresh', 'toggleTaskModal' => 'toggleTaskModal'];
+    protected $listeners = ['refreshFormList' => '$refresh', 'toggleTaskModal' => 'toggleTaskModal'];
 
 
     protected $rules = [
@@ -29,16 +29,17 @@ class TaskForm extends Component
     {
         $this->validate();
 
-        Task::create([
+        $task = Task::create([
             'task_list_id' => $this->list,
             'name' => $this->task,
             'body' => $this->description
         ]);
 
+
         session()->flash('message', 'Task "' . $this->task . '" was created');
-        $this->resetInputFields();
         $this->emit('hideCreateTask');
-        $this->emit('refreshList');
+        $this->emit('refreshList' . $task->task_list_id);
+        $this->resetInputFields();
     }
 
     public function update()
@@ -46,13 +47,18 @@ class TaskForm extends Component
         $this->validate();
 
         $task = Task::find($this->task_id);
+        $current_list_id = $task->task_list_id;
         $task->task_list_id = $this->list;
         $task->name = $this->task;
         $task->body = $this->description;
         $task->save();
         $this->resetInputFields();
         $this->emit('hideCreateTask');
-        $this->emit('refreshList');
+        $this->emit('refreshTask' . $task->id);
+        $this->emit('refreshList' . $task->task_list_id);
+        if ($current_list_id != $task->task_list_id) {
+            $this->emit('refreshList' . $current_list_id);
+        }
     }
 
     public function toggleTaskModal(Task $task)
@@ -78,9 +84,14 @@ class TaskForm extends Component
     }
 
 
-    public function render()
+    public function mount()
     {
         $this->lists = TaskList::latest()->get();
+    }
+
+    public function render()
+    {
+        $this->mount();
         return view('livewire.task-form');
     }
 }

@@ -10,7 +10,11 @@ class Task extends Component
 
     public $task;
 
-    protected $listeners = ['refreshList' => '$refresh'];
+
+    public function getListeners()
+    {
+        return ['refreshTask' . $this->task->id => '$refresh'];
+    }
 
 
     public function complete()
@@ -18,17 +22,24 @@ class Task extends Component
         $this->task->completed = !$this->task->completed;
         $this->task->status = ($this->task->completed == 1) ? 'done' : 'pending';
         $this->task->save();
-        $this->emitUp('refreshList');
+        $this->emitUp('refreshTask' . $this->task->id);
     }
 
-    public function delete(Todo $task)
+    public function delete()
     {
+        $list_id = $this->task->task_list_id;
         $this->task->delete();
-        $this->emitUp('refreshList');
+        $this->emitUp('refreshList' . $list_id);
+    }
+
+    public function mount()
+    {
+        $this->task = Todo::find($this->task->id);
     }
 
     public function render()
     {
+        $this->mount();
         return view('livewire.task');
     }
 }

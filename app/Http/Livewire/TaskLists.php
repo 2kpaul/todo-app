@@ -10,12 +10,16 @@ class TaskLists extends Component
 {
     public $lists;
 
-    protected $listeners = ['refreshList' => '$refresh'];
+    protected $listeners = ['refreshLists' => '$refresh'];
 
+    public function mount()
+    {
+        $this->lists = TaskList::with('tasks')->latest()->get();
+    }
 
     public function render()
     {
-        $this->lists = TaskList::with('tasks')->latest()->get();
+        $this->mount();
         return view('livewire.task-lists');
     }
 }
