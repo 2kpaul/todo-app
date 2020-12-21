@@ -23,13 +23,16 @@
                     <div class="col mt-4">
                         <div class="row">
                             <div class="col">
-                                <button class="btn btn-primary ">
-                                    <span class="fa fa-list pull-left" onClick="window.livewire.emit('toggleListModal')"> Create list</span> 
-                                </button>
-
-                                <button class="btn btn-success" onClick="window.livewire.emit('toggleTaskModal')">
-                                    <span class="fa fa-tasks pull-left"> Create task</span> 
-                                </button>
+                                <div class="text-center">
+                                    <button class="btn btn-primary ">
+                                        <span class="fa fa-list pull-left" onClick="window.livewire.emit('toggleListModal')"> Create list</span> 
+                                    </button>
+    
+                                    <button class="btn btn-success" onClick="window.livewire.emit('toggleTaskModal')">
+                                        <span class="fa fa-tasks pull-left"> Create task</span> 
+                                    </button>
+                                </div>
+                                
                                 @livewire('alerts')
                                 @livewire('task-form')
                                 @livewire('task-list-form')
