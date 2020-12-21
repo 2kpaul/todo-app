@@ -30,7 +30,7 @@ class TaskListForm extends Component
             'name' => $this->list,
         ]);
 
-        session()->flash('message', 'List "' . $this->list . '" was created');
+        $this->emitTo('alerts', 'alert', ['type' => 'success', 'message' => 'List "' . $this->list . '" was created']);
         $this->resetInputFields();
         $this->emit('hideCreateList');
         $this->emit('refreshFormList');
@@ -44,6 +44,7 @@ class TaskListForm extends Component
         $list = TaskList::find($this->list_id);
         $list->name = $this->list;
         $list->save();
+        $this->emitTo('alerts', 'alert', ['type' => 'info', 'message' => 'List "' . $list->name . '" was updated']);
         $this->resetInputFields();
         $this->emit('hideCreateList');
         $this->emit('refreshList' . $list->id);

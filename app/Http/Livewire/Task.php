@@ -28,7 +28,9 @@ class Task extends Component
     public function delete()
     {
         $list_id = $this->task->task_list_id;
+        $task_name = $this->task->name;
         $this->task->delete();
+        $this->emitTo('alerts', 'alert', ['type' => 'danger', 'message' => 'Task "' . $task_name . '" was deleted']);
         $this->emitUp('refreshList' . $list_id);
     }
 

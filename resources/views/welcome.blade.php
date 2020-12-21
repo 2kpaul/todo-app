@@ -30,6 +30,7 @@
                                 <button class="btn btn-success" onClick="window.livewire.emit('toggleTaskModal')">
                                     <span class="fa fa-tasks pull-left"> Create task</span> 
                                 </button>
+                                @livewire('alerts')
                                 @livewire('task-form')
                                 @livewire('task-list-form')
                             </div>

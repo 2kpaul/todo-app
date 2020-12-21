@@ -35,8 +35,7 @@ class TaskForm extends Component
             'body' => $this->description
         ]);
 
-
-        session()->flash('message', 'Task "' . $this->task . '" was created');
+        $this->emitTo('alerts', 'alert', ['type' => 'success', 'message' => 'Task "' . $this->task . '" was created']);
         $this->emit('hideCreateTask');
         $this->emit('refreshList' . $task->task_list_id);
         $this->resetInputFields();
@@ -52,6 +51,7 @@ class TaskForm extends Component
         $task->name = $this->task;
         $task->body = $this->description;
         $task->save();
+        $this->emitTo('alerts', 'alert', ['type' => 'info', 'message' => 'Task "' . $task->name . '" was updated']);
         $this->resetInputFields();
         $this->emit('hideCreateTask');
         $this->emit('refreshTask' . $task->id);
