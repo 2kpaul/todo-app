@@ -9,6 +9,7 @@
         </div>
         <div class="col-1 task-actions align-self-center">
             <i class="fa fa-check-circle fa-lg green" wire:click="complete"></i>
+            <i class="fa fa-edit fa-lg blue" wire:click="$emit('toggleTaskModal', {{ $task }})"></i>
             <i class="fa fa-trash fa-lg red" wire:click="delete"></i>
         </div>
     </div>  

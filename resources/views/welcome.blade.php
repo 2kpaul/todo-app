@@ -50,6 +50,7 @@
         <script type="text/javascript" src="/js/app.js"></script>
         @livewireScripts
         <script type="text/javascript">
+        $( document ).ready(function() {
             window.livewire.on('hideCreateTask', () => {
                 $('#createTask').modal('hide');
             });
@@ -62,7 +63,8 @@
             window.livewire.on('toggleListModal', () => {
                 $('#createList').modal('show');
             });
-            $('.alert').alert()
+            $('.alert').alert();
+        });
         </script>
     </body>
 </html>

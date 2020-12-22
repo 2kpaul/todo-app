@@ -11,7 +11,7 @@ class TaskForm extends Component
     public $lists, $list, $task, $description, $task_id;
     public $update = false;
 
-    protected $listeners = ['refreshFormList' => '$refresh', 'toggleTaskModal' => 'toggleTaskModal'];
+    protected $listeners = ['refreshTaskFormList' => '$refresh', 'toggleTaskModal' => 'toggleTaskModal'];
 
 
     protected $rules = [

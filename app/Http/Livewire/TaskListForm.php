@@ -10,7 +10,7 @@ class TaskListForm extends Component
     public $list, $list_id;
     public $update = false;
 
-    protected $listeners = ['toggleListModal' => 'toggleListModal'];
+    protected $listeners = ['refreshFormList' => '$refresh', 'toggleListModal' => 'toggleListModal'];
 
     protected $rules = [
         'list' => 'required',
@@ -33,7 +33,7 @@ class TaskListForm extends Component
         $this->emitTo('alerts', 'alert', ['type' => 'success', 'message' => 'List "' . $this->list . '" was created']);
         $this->resetInputFields();
         $this->emit('hideCreateList');
-        $this->emit('refreshFormList');
+        $this->emit('refreshTaskFormList');
         $this->emit('refreshLists');
     }
 
@@ -67,6 +67,7 @@ class TaskListForm extends Component
         $this->update = false;
         $this->list_id = '';
     }
+
 
     public function render()
     {
