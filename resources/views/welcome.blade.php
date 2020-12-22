@@ -36,6 +36,7 @@
                                 @livewire('alerts')
                                 @livewire('task-form')
                                 @livewire('task-list-form')
+                                @livewire('comment-form')
                             </div>
                         </div>
                         <div class="row justify-content-around">
@@ -57,11 +58,17 @@
             window.livewire.on('hideCreateList', () => {
                 $('#createList').modal('hide');
             });
+            window.livewire.on('hideCreateComment', () => {
+                $('#createComment').modal('hide');
+            });
             window.livewire.on('toggleTaskModal', () => {
                 $('#createTask').modal('show');
             });
             window.livewire.on('toggleListModal', () => {
                 $('#createList').modal('show');
+            });
+            window.livewire.on('toggleCommentsModal', () => {
+                $('#createComment').modal('show');
             });
             $('.alert').alert();
         });

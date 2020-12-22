@@ -10914,7 +10914,8 @@ body {
 input,
 h2,
 h3,
-.task-status {
+.task-status,
+.task-update {
   font-family: "Amatic SC", cursive;
 }
 
@@ -10997,6 +10998,12 @@ h4 {
   color: white;
 }
 
+.task-update {
+  background-color: #504f6f;
+  text-align: center;
+  color: white;
+}
+
 .task-status-done {
   background-color: #00c875;
 }
@@ -11007,5 +11014,16 @@ h4 {
 
 .form-task {
   padding: 1rem;
+}
+
+.comments {
+  padding: 1rem;
+}
+
+.comments .comment {
+  background-color: #eff5fc;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-left: 5px solid #0086c0;
 }
 
