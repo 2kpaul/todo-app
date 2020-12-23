@@ -15,7 +15,7 @@
             <section class="container">
                 <div class="row justify-content-around text-center">
                     <div class="col-8 mt-4">
-                        <h1>ToDo App</h1>
+                        <h1>Tasks App</h1>
                     </div>
                 </div>
     
